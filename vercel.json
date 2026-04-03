@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd warm-wishes && npm install && npm run build",
+  "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
+  "installCommand": "cd warm-wishes && npm install",
+  "framework": null
+}

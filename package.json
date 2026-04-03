@@ -1,0 +1,10 @@
+{
+  "name": "birthday-wishes",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "cd warm-wishes && npm run start",
+    "build": "cd warm-wishes && npm install && npm run build",
+    "start": "cd warm-wishes && npm run start"
+  },
+  "private": true
+}
