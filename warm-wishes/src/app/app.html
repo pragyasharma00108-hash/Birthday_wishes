@@ -1,0 +1,96 @@
+<div class="page-wrapper">
+
+  <!-- Floating background emojis -->
+  <div class="floating-bg" aria-hidden="true">
+    @for (emoji of floatingEmojis; track $index) {
+    <span class="float-emoji" [style]="getFloatingStyle($index)">{{ emoji }}</span>
+    }
+  </div>
+
+  <!-- Sparkles overlay -->
+  @if (showSparkles()) {
+  <div class="sparkles-overlay" aria-hidden="true">
+    @for (s of sparkles; track s.id) {
+    <span class="sparkle" [style]="s.style">✨</span>
+    }
+  </div>
+  }
+
+  <!-- Main card -->
+  <main class="wish-container">
+    <div class="wish-card" [class.animating]="animating()">
+
+      <!-- Top emoji badge -->
+      <div class="emoji-badge" aria-hidden="true">
+        {{ currentWish().emoji }}
+      </div>
+
+      <!-- Header -->
+      <header class="card-header">
+        <p class="app-eyebrow">✦ A Birthday Celebration ✦</p>
+        <h1 class="app-title">Warm Wishes</h1>
+      </header>
+
+      <!-- Name display — elegant serif style -->
+      <div class="name-display">
+        <div class="name-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-icon">❧</span>
+          <span class="ornament-line"></span>
+        </div>
+        <p class="recipient-name">{{ name() }}</p>
+        <div class="name-ornament name-ornament--bottom">
+          <span class="ornament-line"></span>
+          <span class="ornament-icon">❧</span>
+          <span class="ornament-line"></span>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="message-block">
+        <p class="wish-text">{{ currentWish().text }}</p>
+        <p class="ps-text">{{ currentWish().ps }}</p>
+
+        @if (from()) {
+        <p class="from-signature">— With love, <strong>{{ from() }}</strong> 💛</p>
+        }
+      </div>
+
+      <!-- Divider -->
+      <div class="card-divider" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-dot">◆</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="new-wish-btn" class="btn btn-primary" (click)="newWish()" [disabled]="animating()"
+          title="Show another birthday wish">
+          <span class="btn-icon">✨</span>
+          <span>New Wish</span>
+        </button>
+
+        <button id="share-btn" class="btn btn-secondary" (click)="shareLink()" title="Copy shareable link">
+          <span class="btn-icon">{{ copied() ? '✅' : '📤' }}</span>
+          <span>{{ copied() ? 'Copied!' : 'Share' }}</span>
+        </button>
+
+        <button id="music-btn" class="btn btn-ghost" (click)="toggleMusic()" [class.active]="musicPlaying()"
+          title="Toggle background music">
+          <span class="btn-icon">{{ musicPlaying() ? '🔇' : '🎵' }}</span>
+          <span>{{ musicPlaying() ? 'Mute' : 'Music' }}</span>
+        </button>
+      </div>
+
+      <!-- Footer hint -->
+      <p class="footer-hint">
+        Personalize: add <strong>?name=FriendName&amp;from=YourName</strong> to the link 🎁
+      </p>
+
+    </div>
+  </main>
+
+
+  <router-outlet />
+</div>
