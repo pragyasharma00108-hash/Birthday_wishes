@@ -3,11 +3,7 @@
   "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
   "installCommand": "echo 'skipping root install'",
   "framework": null,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
+  "regions": ["iad1"],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
