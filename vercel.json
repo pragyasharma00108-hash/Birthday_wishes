@@ -1,6 +1,10 @@
 {
-  "buildCommand": "cd warm-wishes && npm ci && npm run build",
+  "buildCommand": "cd warm-wishes && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
   "installCommand": "echo 'skipping root install'",
-  "framework": null
+  "framework": null,
+  "regions": ["iad1"],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
