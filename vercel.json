@@ -3,10 +3,8 @@
   "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
   "installCommand": "npm install -g npm@latest",
   "framework": null,
-  "build": {
-    "env": {
-      "NODE_VERSION": "20"
-    }
+  "env": {
+    "NODE_VERSION": "24.x"
   },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
