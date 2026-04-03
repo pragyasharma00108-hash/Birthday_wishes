@@ -1,9 +1,11 @@
 {
   "buildCommand": "cd warm-wishes && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
-  "installCommand": "echo 'skipping root install'",
+  "installCommand": "npm install -g npm@latest",
   "framework": null,
-  "regions": ["iad1"],
+  "env": {
+    "NODE_VERSION": "24.x"
+  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
