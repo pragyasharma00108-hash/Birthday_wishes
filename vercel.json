@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd warm-wishes && npm ci && npm run build",
+  "outputDirectory": "warm-wishes/dist/warm-wishes/browser",
+  "installCommand": "echo 'skipping root install'",
+  "framework": null
+}
